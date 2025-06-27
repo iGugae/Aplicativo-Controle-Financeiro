@@ -1,0 +1,317 @@
+body {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 1.5em;
+  padding: 0;
+  margin: 0;
+  background-color: #704d2f; /* marrom escuro */
+  color: #d9c9b6; /* bege claro para texto */
+}
+
+h1 {
+  text-align: center;
+  text-decoration: underline;
+  text-shadow: 1px 1px 3px #5b3b1d; /* sombra marrom mais clara */
+  color: #d9c9b6;
+}
+
+/* Login container */
+#loginContainer {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  margin: 100px auto;
+  padding: 40px;
+  width: 90%;
+  max-width: 400px;
+
+  border: 1px solid #5b3b1d;
+  border-radius: 20px;
+  box-shadow: 3px 3px 8px rgba(0,0,0,0.6);
+  background-color: rgb(247, 188, 136); /* marrom médio */
+  color: #d9c9b6;
+}
+
+#loginContainer input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 1em;
+
+  border: 1px solid #5b3b1d;
+  border-radius: 10px;
+  text-align: center;
+  background-color: #533d1e; /* tom terroso escuro */
+  color: #d9c9b6;
+}
+
+#loginContainer input::placeholder {
+  color: #bba993; /* placeholder mais claro */
+}
+
+#loginContainer button {
+  padding: 10px 20px;
+  font-size: 1em;
+  margin: 0 auto;
+  display: block;
+
+  cursor: pointer;
+  background-color: #b66e34; /* marrom avermelhado */
+  border: 1px solid #8a4f1a;
+  border-radius: 10px;
+  transition: background-color 0.3s;
+  color: #fff3d4;
+}
+
+#loginContainer button:hover {
+  background-color: #8a4f1a;
+}
+
+/* Área principal do app */
+#appContainer {
+  display: block;
+}
+
+/* Topo com nome do usuário e logout */
+#usuarioAtual {
+  margin-right: 10px;
+  font-weight: bold;
+  color: #d9c9b6;
+}
+
+/* Botão de logout */
+#appContainer button[onclick*="fazerLogout"] {
+  background-color: #a9452a; /* vermelho terroso escuro */
+  border: 1px solid #7c3421;
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-size: 0.8em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  color: #fff3d4;
+}
+
+#appContainer button[onclick*="fazerLogout"]:hover {
+  background-color: #7c3421;
+}
+
+/* App principal */
+.container {
+  margin: auto;
+  width: 90vw;
+  max-width: 800px;
+  padding: 20px;
+
+  display: flex;
+  gap: 20px;
+  flex-flow: column nowrap;
+
+  border: 1px solid #5b3b1d;
+  border-radius: 30px;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.7);
+  background-color: #3e2a14;
+  color: #d9c9b6;
+}
+
+.entradas {
+  margin: 20px 10px;
+  margin-top: 30px;
+
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 10px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.entradas input {
+  flex: 1;
+  min-width: 140px;
+  padding: 10px;
+  text-align: center;
+  font-size: 1em;
+
+  border: 1px solid #5b3b1d;
+  border-radius: 20px;
+  background-color: #533d1e;
+  color: #d9c9b6;
+}
+
+.entradas input::placeholder {
+  color: #bba993;
+}
+
+.botoes {
+  margin: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-flow: row nowrap;
+}
+
+.botoes button {
+  width: 200px;
+  height: 50px;
+  padding: 10px;
+
+  cursor: pointer;
+  font-size: 1em;
+  border-radius: 6px;
+  border: 1px solid black;
+  color: #fff3d4;
+  font-weight: 600;
+}
+
+#ganho {
+  background-color: #739965; /* verde oliva escuro */
+  border-color: #5b7a47;
+}
+
+#ganho:hover {
+  transition: 0.3s;
+  transform: scale(1.05);
+  background-color: #5b7a47;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.6);
+}
+
+#gasto {
+  background-color: #a9452a; /* vermelho terroso */
+  border-color: #7c3421;
+}
+
+#gasto:hover {
+  transition: 0.3s;
+  transform: scale(1.05);
+  background-color: #7c3421;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.6);
+}
+
+h2 {
+  margin-top: -10px;
+  text-align: center;
+  text-decoration: underline;
+  color: #d9c9b6;
+}
+
+.controle-mes {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.controle-mes button {
+  background-color: #3e2a14;
+  border: 1px solid #5b3b1d;
+  padding: 9px 12px;
+  font-size: 1.2em;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  color: #d9c9b6;
+}
+
+.controle-mes button:hover {
+  background-color: #5b3b1d;
+}
+
+#resumo {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  transition: color 0.9s ease, background-color 0.3s ease;
+}
+
+#resumo p {
+  border: 1px solid #5b3b1d;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  background-color: #533d1e;
+  color: #d9c9b6;
+  transition: transform 0.9s ease;
+}
+
+#graficoPizza {
+  max-width: 100%;
+  max-height: 300px;
+  padding: 0;
+  display: block;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+li {
+  width: 100%;
+  padding: 10px 15px;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+
+  border: 1px solid #5b3b1d;
+  border-radius: 10px;
+
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeIn 0.9s ease forwards;
+  color: #d9c9b6;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+li.gasto {
+  background-color: #a9452a;
+  color: #fff3d4;
+}
+
+li.ganho {
+  background-color: #739965;
+  color: #fff3d4;
+}
+
+button.delete {
+  height: 30px;
+  width: 50px;
+  margin-left: 10px;
+
+  cursor: pointer;
+  color: #fff3d4;
+  background-color: #7c3421;
+  border: 1px solid #5b2616;
+  border-radius: 6px;
+}
+
+button.delete:hover {
+  background-color: #5b2616;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .entradas, .botoes {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  li {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 5px;
+  }
+
+  button.delete {
+    width: 50px;
+  }
+
+  #loginContainer {
+    margin: 50px auto;
+    padding: 20px;
+  }
+}

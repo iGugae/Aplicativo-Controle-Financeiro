@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Controle Financeiro</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+</head>
+<body>
+  <h1>Controle Financeiro</h1>
+
+  <!-- Login -->
+  <div id="loginContainer">
+    <h2>Login</h2>
+    <input type="text" id="usuarioLogin" placeholder="Nome de usuário" />
+    <button onclick="fazerLogin()">Entrar</button>
+  </div>
+
+  <!-- App -->
+  <div id="appContainer" style="display: none;">
+      
+      <div class="container"> 
+          <div class="entradas">
+              <input type="number" id="valor" placeholder="R$ Valor" />
+              <input type="text" id="descricao" placeholder="Descrição" />
+            </div>
+            
+            <div class="botoes">
+                <button id="ganho" class="operacao" onclick="adicionarTransacao('ganho')">Valor Ganho +</button>
+                <button id="gasto" class="operacao" onclick="adicionarTransacao('gasto')">Valor Gasto -</button>
+            </div>
+            
+            <div class="controle-mes">
+                <button onclick="voltarMes()">←</button>
+                <h2 id="mes">Mês</h2>
+                <button onclick="avancarMes()">→</button>
+            </div>
+            
+            <div id="resumo">
+                <p><strong>Ganho:</strong> R$ <span id="ganhoMes">0.00</span></p>
+                <p><strong>Gasto:</strong> R$ <span id="gastoMes">0.00</span></p>
+                <p><strong>Saldo:</strong> R$ <span id="saldoMes">0.00</span></p>
+            </div>
+            <canvas id="graficoPizza" width="300" height="300"></canvas>
+            
+            <ul id="lista"></ul>
+            <div style="text-align: right;">
+              <span id="usuarioAtual" style="font-weight: bold;"></span>
+              <button onclick="fazerLogout()">Sair</button>
+            </div>
+        </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js');
+    }
+  </script>
+</body>
+</html>
