@@ -101,7 +101,7 @@ h1 {
 .container {
   margin: auto;
   width: 88vw;
-  max-width: 700px;
+  max-width: 780px;
   padding: 20px;
 
   display: flex;
