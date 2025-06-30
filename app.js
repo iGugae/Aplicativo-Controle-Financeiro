@@ -95,8 +95,12 @@ function renderizarLista() {
     const dataObj = new Date(data);
     const mesmoMes = dataObj.getMonth() === mesAtual && dataObj.getFullYear() === anoAtual;
 
-    li.innerHTML = `${capitalizeLetra(descricao)}: R$ ${valor.toFixed(2)} - ${dataObj.toLocaleDateString()}`;
+    // Criar a <span> com o conteúdo textual
+    const span = document.createElement('span');
+    span.textContent = `${capitalizeLetra(descricao)}: R$ ${valor.toFixed(2)} - ${dataObj.toLocaleDateString()}`;
+    li.appendChild(span);
 
+    // Criar e adicionar o botão delete se for do mês atual
     if (mesmoMes) {
       const btn = document.createElement('button');
       btn.textContent = '🗑️';

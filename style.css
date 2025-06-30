@@ -265,9 +265,16 @@ li {
   color: #d9c9b6;
   font-size: 0.6em;
 
-  white-space: nowrap;
+  overflow: hidden;
+}
+
+li > span {
   overflow-x: auto;
+  white-space: nowrap;
   text-overflow: ellipsis;
+  flex-grow: 1;
+  display: block;
+  margin-right: 10px; 
 }
 
 @keyframes fadeIn {
