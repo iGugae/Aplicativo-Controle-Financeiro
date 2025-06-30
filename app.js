@@ -64,7 +64,7 @@ function carregarTransacoes() {
 
 // ➕ Adiciona uma transação
 function adicionarTransacao(tipo) {
-  const descricao = document.getElementById('descricao').value;
+  const descricao = document.getElementById('descricao').value.trim();
   const valor = parseFloat(document.getElementById('valor').value);
   if (!descricao || isNaN(valor)) return;
 
@@ -95,7 +95,7 @@ function renderizarLista() {
     const dataObj = new Date(data);
     const mesmoMes = dataObj.getMonth() === mesAtual && dataObj.getFullYear() === anoAtual;
 
-    li.innerHTML = `${capitalizeLetra(descricao)}: R$ ${valor.toFixed(2)} — ${dataObj.toLocaleDateString()}`;
+    li.innerHTML = `${capitalizeLetra(descricao)}: R$ ${valor.toFixed(2)} - ${dataObj.toLocaleDateString()}`;
 
     if (mesmoMes) {
       const btn = document.createElement('button');

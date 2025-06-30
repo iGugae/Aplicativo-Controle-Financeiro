@@ -261,7 +261,7 @@ li {
   transform: translateY(10px);
   animation: fadeIn 0.9s ease forwards;
   color: #d9c9b6;
-  font-size: 0.8em;
+  font-size: 0.6em;
 
   white-space: nowrap;
   overflow: hidden;
