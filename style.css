@@ -251,6 +251,7 @@ li {
   width: 100%;
   padding: 10px 15px;
   margin-top: 8px;
+  gap: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -268,12 +269,14 @@ li {
   overflow: hidden;
 }
 
-li > span {
+.descricao-transacao {
   overflow-x: auto;
   white-space: nowrap;
-  flex-grow: 1;
   display: block;
-  margin-right: 10px; 
+  flex-grow: 1;
+  padding-right: 10px;
+
+  text-overflow: unset;
 }
 
 @keyframes fadeIn {

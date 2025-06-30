@@ -95,12 +95,13 @@ function renderizarLista() {
     const dataObj = new Date(data);
     const mesmoMes = dataObj.getMonth() === mesAtual && dataObj.getFullYear() === anoAtual;
 
-    // Criar a <span> com o conteúdo textual
-    const span = document.createElement('span');
-    span.textContent = `${capitalizeLetra(descricao)}: R$ ${valor.toFixed(2)} - ${dataObj.toLocaleDateString()}`;
-    li.appendChild(span);
+    // Criar a <span> com texto que poderá rolar
+    const texto = document.createElement('span');
+    texto.textContent = `${capitalizeLetra(descricao)}: R$ ${valor.toFixed(2)} - ${dataObj.toLocaleDateString()}`;
+    texto.className = 'descricao-transacao'; // estilo aplicado no CSS
 
-    // Criar e adicionar o botão delete se for do mês atual
+    li.appendChild(texto);
+
     if (mesmoMes) {
       const btn = document.createElement('button');
       btn.textContent = '🗑️';
