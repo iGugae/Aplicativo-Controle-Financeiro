@@ -100,9 +100,8 @@ h1 {
 /* App principal */
 .container {
   margin: auto;
-  width: 90vw;
+  width: 88vw;
   max-width: 700px;
-  box-sizing: border-box;
   padding: 20px;
 
   display: flex;
