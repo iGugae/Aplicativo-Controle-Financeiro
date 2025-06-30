@@ -5,6 +5,7 @@ body {
   margin: 0;
   background-color: #704d2f; /* marrom escuro */
   color: #d9c9b6; /* bege claro para texto */
+  max-width: 100%;
   overflow-x: hidden;
 }
 
@@ -100,6 +101,7 @@ h1 {
   margin: auto;
   width: 90vw;
   max-width: 800px;
+  box-sizing: border-box;
   padding: 20px;
 
   display: flex;
