@@ -5,6 +5,7 @@ body {
   margin: 0;
   background-color: #704d2f; /* marrom escuro */
   color: #d9c9b6; /* bege claro para texto */
+  overflow-x: hidden;
 }
 
 h1 {
@@ -21,7 +22,7 @@ h1 {
   align-items: center;
   margin: 100px auto;
   padding: 40px;
-  width: 90%;
+  width: 80%;
   max-width: 400px;
 
   border: 1px solid #5b3b1d;
@@ -33,7 +34,7 @@ h1 {
 
 #loginContainer input {
   width: 100%;
-  padding: 10px;
+  padding: 10px 0;
   margin-bottom: 15px;
   font-size: 1em;
 
@@ -143,21 +144,21 @@ h1 {
 .botoes {
   margin: 20px;
   display: flex;
-  justify-content: space-evenly;
   flex-flow: row nowrap;
+  justify-content: space-evenly;
+  gap: 20px;
 }
 
 .botoes button {
-  width: 200px;
   height: 50px;
   padding: 10px;
 
   cursor: pointer;
-  font-size: 1em;
+  font-size: 0.8em;
   border-radius: 6px;
   border: 1px solid black;
   color: #fff3d4;
-  font-weight: 600;
+  font-weight: 300;
 }
 
 #ganho {
@@ -189,6 +190,7 @@ h2 {
   text-align: center;
   text-decoration: underline;
   color: #d9c9b6;
+  font-size: 1.3em;
 }
 
 .controle-mes {
@@ -200,7 +202,7 @@ h2 {
 .controle-mes button {
   background-color: #3e2a14;
   border: 1px solid #5b3b1d;
-  padding: 9px 12px;
+  padding: 5px 9px;
   font-size: 1.2em;
   border-radius: 6px;
   cursor: pointer;
@@ -223,10 +225,11 @@ h2 {
   border: 1px solid #5b3b1d;
   border-radius: 10px;
   padding: 10px;
-  margin: 10px;
+  margin: 5px;
   background-color: #533d1e;
   color: #d9c9b6;
   transition: transform 0.9s ease;
+  font-size: 0.6em;
 }
 
 #graficoPizza {
@@ -258,6 +261,11 @@ li {
   transform: translateY(10px);
   animation: fadeIn 0.9s ease forwards;
   color: #d9c9b6;
+  font-size: 0.8em;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @keyframes fadeIn {
@@ -278,9 +286,9 @@ li.ganho {
 }
 
 button.delete {
+  flex-shrink: 0;
   height: 30px;
   width: 50px;
-  margin-left: 10px;
 
   cursor: pointer;
   color: #fff3d4;
@@ -297,7 +305,7 @@ button.delete:hover {
 @media (max-width: 600px) {
   .entradas, .botoes {
     flex-direction: row;
-    align-items: stretch;
+    align-items: center;
   }
 
   li {

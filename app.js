@@ -194,14 +194,14 @@ function atualizarGraficoPizza() {
 
   Object.entries(agrupado).forEach(([desc, valores]) => {
     if (valores.ganho > 0) {
-      labels.push(`${desc} (Ganho): R$ ${valores.ganho.toFixed(2)}`);
+      labels.push(desc);
       data.push(valores.ganho);
-      backgroundColors.push(corVibranteAleatoriaRGB());
+      backgroundColors.push(corVibranteAleatoriaHSL());
     }
     if (valores.gasto > 0) {
-      labels.push(`${desc} (Gasto): R$ ${valores.gasto.toFixed(2)}`);
+      labels.push(desc);
       data.push(valores.gasto);
-      backgroundColors.push(corVibranteAleatoriaRGB());
+      backgroundColors.push(corVibranteAleatoriaHSL());
     }
   });
 
@@ -235,12 +235,17 @@ function atualizarGraficoPizza() {
         },
         tooltip: {
           callbacks: {
-            label: context => context.label // já vem formatado no label
+            label: context => {
+              const label = context.label || '';
+              const value = context.parsed || 0;
+              return `${label}: R$ ${value.toFixed(2)}`;
+            }
           }
         }
       }
     }
-  };
+  }
+
 
   if (graficoPizza) {
     graficoPizza.data = dados;
@@ -250,9 +255,7 @@ function atualizarGraficoPizza() {
   }
 }
 
-function corVibranteAleatoriaRGB() {
-  const r = 150 + Math.floor(Math.random() * 106);  // 150 a 255
-  const g = 150 + Math.floor(Math.random() * 106);
-  const b = 150 + Math.floor(Math.random() * 106);
-  return `rgb(${r},${g},${b})`;
+function corVibranteAleatoriaHSL() {
+  const hue = Math.floor(Math.random() * 360); // 0 a 359
+  return `hsl(${hue}, 100%, 50%)`;
 }
