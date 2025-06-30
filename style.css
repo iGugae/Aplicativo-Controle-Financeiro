@@ -78,6 +78,7 @@ h1 {
   margin-right: 10px;
   font-weight: bold;
   color: #d9c9b6;
+  font-size: 0.6em;
 }
 
 /* Botão de logout */
@@ -100,7 +101,7 @@ h1 {
 .container {
   margin: auto;
   width: 90vw;
-  max-width: 800px;
+  max-width: 700px;
   box-sizing: border-box;
   padding: 20px;
 
