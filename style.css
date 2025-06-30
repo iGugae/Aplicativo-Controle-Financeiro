@@ -271,7 +271,6 @@ li {
 li > span {
   overflow-x: auto;
   white-space: nowrap;
-  text-overflow: ellipsis;
   flex-grow: 1;
   display: block;
   margin-right: 10px; 
