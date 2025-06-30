@@ -266,7 +266,7 @@ li {
   font-size: 0.6em;
 
   white-space: nowrap;
-  overflow: hidden;
+  overflow-x: auto;
   text-overflow: ellipsis;
 }
 
