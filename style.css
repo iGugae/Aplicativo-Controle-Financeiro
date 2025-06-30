@@ -287,8 +287,8 @@ li.ganho {
 
 button.delete {
   flex-shrink: 0;
-  height: 30px;
   width: 50px;
+  height: 30px;
 
   cursor: pointer;
   color: #fff3d4;
@@ -309,8 +309,8 @@ button.delete:hover {
   }
 
   li {
-    flex-direction: column;
-    align-items: stretch;
+    flex-direction: row;
+    align-items: center;
     gap: 5px;
   }
 
