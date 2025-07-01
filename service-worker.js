@@ -1,6 +1,8 @@
+const CACHE_NAME = 'controle-financeiro-v2';  // altere a versão a cada update
+
 self.addEventListener('install', e => {
   e.waitUntil(
-    caches.open('controle-financeiro').then(cache => {
+    caches.open(CACHE_NAME).then(cache => {
       return cache.addAll([
         './',
         './index.html',
@@ -10,6 +12,17 @@ self.addEventListener('install', e => {
         './imagens/icon-192.png',
         './imagens/icon-512.png'
       ]);
+    })
+  );
+});
+
+self.addEventListener('activate', e => {
+  e.waitUntil(
+    caches.keys().then(keys => {
+      return Promise.all(
+        keys.filter(key => key !== CACHE_NAME)
+            .map(key => caches.delete(key))
+      );
     })
   );
 });
