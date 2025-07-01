@@ -1,124 +1,120 @@
+:root {
+  --cor0: #1e1b2f;  /* background */
+  --cor1: #2d253f;  /* container */
+  --cor2: #3f2e56;  /* border container */
+  --cor3: #dcb7e0;  /* texto */
+  --cor4: #3f2e56;  /* input */
+  --cor5: #59406f;  /* border input */
+  --cor6: #7b3b8c;  /* botão */
+  --cor7: #592c66;  /* border botão */
+  --cor8: #00000080;  /* shadow */
+  --cor9: #28866f;  /* verde ganho */
+  --cor10: #194d3f; /* border verde */
+  --cor11: #b64358; /* vermelho gasto */
+  --cor12: #772737; /* border vermelho */
+}
+
 body {
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  font-size: 1.5em;
-  padding: 0;
   margin: 0;
-  background-color: #704d2f; /* marrom escuro */
-  color: #d9c9b6; /* bege claro para texto */
+  padding: 0;
   max-width: 100%;
+  
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 1.5em;
+  color: var(--cor3);
+  
   overflow-x: hidden;
+  background-color: var(--cor0); 
 }
 
-h1 {
+h1 {  /* Controle Financeiro */
   text-align: center;
+
+  color: var(--cor3);
   text-decoration: underline;
-  text-shadow: 1px 1px 3px #5b3b1d; /* sombra marrom mais clara */
-  color: #d9c9b6;
+  text-shadow: 1px 1px 3px var(--cor8); 
 }
 
-/* Login container */
-#loginContainer {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  margin: 100px auto;
-  padding: 40px;
+#loginContainer {  /* Login container */
+  margin: 140px auto;
+  padding: 30px;
   width: 80%;
   max-width: 400px;
 
-  border: 1px solid #5b3b1d;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  
+  border: 1px solid var(--cor2);
   border-radius: 20px;
-  box-shadow: 3px 3px 8px rgba(0,0,0,0.6);
-  background-color: #3e2a14; /* marrom médio */
-  color: #d9c9b6;
+  box-shadow: 3px 3px 8px var(--cor8);
+  background-color: var(--cor1); 
+}
+
+#loginContainer h2 {
+  color: var(--cor3);
 }
 
 #loginContainer input {
-  width: 100%;
+  margin-bottom: 20px;
   padding: 10px 0;
-  margin-bottom: 15px;
-  font-size: 1em;
-
-  border: 1px solid #5b3b1d;
-  border-radius: 10px;
+  width: 100%;
+  
   text-align: center;
-  background-color: #533d1e; /* tom terroso escuro */
-  color: #d9c9b6;
+  font-size: 1em;
+  border: 1px solid var(--cor5);
+  border-radius: 10px;
+  color: var(--cor3);  /* cor da letra ao digitar */
+  background-color: var(--cor4); 
 }
 
 #loginContainer input::placeholder {
-  color: #bba993; /* placeholder mais claro */
+  color: var(--cor3); 
 }
 
 #loginContainer button {
-  padding: 10px 20px;
-  font-size: 1em;
-  margin: 0 auto;
+  margin: auto;
+  padding: 10px 22px;
+  
   display: block;
-
+  
+  font-size: 1em;
   cursor: pointer;
-  background-color: #b66e34; /* marrom avermelhado */
-  border: 1px solid #8a4f1a;
+  border: 1px solid var(--cor7);
   border-radius: 10px;
-  transition: background-color 0.3s;
-  color: #fff3d4;
+  color: var(--cor3);
+  background-color: var(--cor6);
 }
 
 #loginContainer button:hover {
-  background-color: #8a4f1a;
+  transition: background-color 0.5s;
+  background-color: var(--cor7);
 }
 
-/* Área principal do app */
-#appContainer {
+#appContainer {  /* Container primário */
   display: block;
 }
 
-/* Topo com nome do usuário e logout */
-#usuarioAtual {
-  margin-right: 10px;
-  font-weight: bold;
-  color: #d9c9b6;
-  font-size: 0.6em;
-}
-
-/* Botão de logout */
-#appContainer button[onclick*="fazerLogout"] {
-  background-color: #a9452a; /* vermelho terroso escuro */
-  border: 1px solid #7c3421;
-  border-radius: 6px;
-  padding: 5px 10px;
-  font-size: 0.6em;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  color: #fff3d4;
-}
-
-#appContainer button[onclick*="fazerLogout"]:hover {
-  background-color: #7c3421;
-}
-
-/* App principal */
-.container {
+.container {  /* Container principal */
   margin: auto;
+  padding: 20px;
   width: 89vw;
   max-width: 780px;
-  padding: 20px;
-
+  
   display: flex;
-  gap: 20px;
   flex-flow: column nowrap;
-
-  border: 1px solid #5b3b1d;
+  gap: 30px;
+  
+  border: 1px solid var(--cor2);
   border-radius: 30px;
-  box-shadow: 5px 5px 10px rgba(0,0,0,0.7);
-  background-color: #3e2a14;
-  color: #d9c9b6;
+  background-color: var(--cor1);
+  box-shadow: 5px 5px 10px var(--cor8);
 }
 
-.entradas {
-  margin: 20px 10px;
-  margin-top: 30px;
-
+.entradas {  /* Container entradas */
+  margin: 30px 10px 20px 10px;
+  
   display: flex;
   flex-flow: row nowrap;
   gap: 10px;
@@ -127,210 +123,217 @@ h1 {
 }
 
 .entradas input {
-  flex: 1;
-  min-width: 140px;
   padding: 10px;
-  text-align: center;
-  font-size: 1em;
+  min-width: 140px;
 
-  border: 1px solid #5b3b1d;
-  border-radius: 20px;
-  background-color: #533d1e;
-  color: #d9c9b6;
+  flex: 1; /* Asterisco */
+  
+  font-size: 1em;
+  text-align: center;
+  color: var(--cor3);
+  border: 1px solid var(--cor5);
+  border-radius: 15px;
+  background-color: var(--cor4);
 }
 
 .entradas input::placeholder {
-  color: #bba993;
+  color: var(--cor3);
 }
 
-.botoes {
+.botoes {  /* Container botões */
   margin: 20px;
+
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  align-items: center;
   gap: 20px;
 }
 
 .botoes button {
   height: 50px;
   padding: 10px;
-
+  
+  text-align: center;
   cursor: pointer;
   font-size: 0.8em;
-  border-radius: 6px;
-  border: 1px solid black;
-  color: #fff3d4;
-  font-weight: 300;
+  border: 1px solid var(--cor8);  /* cor irrelevante */ 
+  border-radius: 10px;
+  color: var(--cor3);
 }
 
 #ganho {
-  background-color: #739965; /* verde oliva escuro */
-  border-color: #5b7a47;
+  border-color: var(--cor10);
+  background-color: var(--cor9); 
 }
 
 #ganho:hover {
-  transition: 0.3s;
+  transition: 0.5s;
   transform: scale(1.05);
-  background-color: #5b7a47;
-  box-shadow: 5px 5px 10px rgba(0,0,0,0.6);
+  background-color: var(--cor10);
+  box-shadow: 5px 5px 10px var(--cor8);
 }
 
 #gasto {
-  background-color: #a9452a; /* vermelho terroso */
-  border-color: #7c3421;
+  border-color: var(--cor12);
+  background-color: var(--cor11); 
 }
 
 #gasto:hover {
-  transition: 0.3s;
+  transition: 0.5s;
   transform: scale(1.05);
-  background-color: #7c3421;
-  box-shadow: 5px 5px 10px rgba(0,0,0,0.6);
+  background-color: var(--cor12);
+  box-shadow: 5px 5px 10px var(--cor8);
 }
 
-h2 {
-  margin-top: -10px;
-  text-align: center;
-  text-decoration: underline;
-  color: #d9c9b6;
-  font-size: 1.3em;
-}
-
-.controle-mes {
+.controle-mes {  /* Container mês */
   display: flex;
+  flex-flow: row nowrap;
   justify-content: space-evenly;
   align-items: center;
 }
 
+h2 {  /* Mês */
+  margin-top: 20px;
+  
+  text-align: center;
+  font-size: 1.3em;
+  text-decoration: underline;
+  color: var(--cor3);
+}
+
 .controle-mes button {
-  background-color: #3e2a14;
-  border: 1px solid #5b3b1d;
-  padding: 5px 9px;
-  font-size: 1.2em;
-  border-radius: 6px;
+  padding: 8px 11px;
+
   cursor: pointer;
-  transition: background-color 0.3s;
-  color: #d9c9b6;
+  font-size: 1.2em;
+  color: var(--cor3);
+  border: 1px solid var(--cor5);
+  border-radius: 10px;
+  background-color: var(--cor4);
 }
 
 .controle-mes button:hover {
-  background-color: #5b3b1d;
+  transition: background-color 0.5s;
+  background-color: var(--cor5);
 }
 
-#resumo {
+#resumo {  /* Container resumo */
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-evenly;
-  transition: color 0.9s ease, background-color 0.3s ease;
 }
 
 #resumo p {
-  border: 1px solid #5b3b1d;
-  border-radius: 10px;
-  padding: 10px;
   margin: 5px;
-  background-color: #533d1e;
-  color: #d9c9b6;
-  transition: transform 0.9s ease;
+  padding: 10px;
+
   font-size: 0.6em;
+  color: var(--cor3);
+  border: 1px solid var(--cor5);
+  border-radius: 10px;
+  background-color: var(--cor4);
 }
 
 #graficoPizza {
+  padding: 0;
   max-width: 100%;
   max-height: 300px;
-  padding: 0;
   display: block;
 }
 
-ul {
+ul {  /* Lista */
   padding: 0;
   margin: 0;
   list-style: none;
 }
 
-li {
-  width: 100%;
+li {  /* Itens da lista */
   padding: 10px 15px;
   margin-top: 8px;
-  gap: 10px;
+  width: 100%;
+
   display: flex;
-  align-items: center;
+  flex-flow: row nowrap; 
   justify-content: space-between;
+  align-items: center;
+  gap: 10px;  /* gap entre texto e botão delete */
   box-sizing: border-box;
-
-  border: 1px solid #5b3b1d;
-  border-radius: 10px;
-
+  
+  font-size: 0.6em;
+  color: var(--cor3);
+  border: 1px solid var(--cor8);
+  border-radius: 15px;
+  
   opacity: 0;
   transform: translateY(10px);
   animation: fadeIn 0.9s ease forwards;
-  color: #d9c9b6;
-  font-size: 0.6em;
-
   overflow: hidden;
 }
 
-.descricao-transacao {
-  overflow-x: auto;
-  white-space: nowrap;
+.descricao-transacao {  /* Texto da li */
+  padding-right: 10px;
+  
   display: block;
   flex-grow: 1;
-  padding-right: 10px;
-
+  
+  overflow-x: auto;
+  white-space: nowrap;
   text-overflow: unset;
+}
+
+li.gasto {
+  background-color: var(--cor11);
+}
+
+li.ganho {
+  background-color: var(--cor9);
+}
+
+button.delete {
+  width: 50px;
+  height: 30px;
+  
+  flex-shrink: 0;
+
+  cursor: pointer;
+  color: var(--cor3);
+  border: 1px solid var(--cor5);
+  border-radius: 6px;
+  background-color: var(--cor4);
+}
+
+button.delete:hover {
+  background-color: var(--cor12);
+}
+
+#usuarioAtual {
+  margin-right: 10px;
+
+  font-weight: bold;
+  color: var(--cor3);
+  font-size: 0.8em;
+}
+
+#appContainer button[onclick*="fazerLogout"] {  /* Botão de logout */
+  padding: 5px 10px;
+
+  cursor: pointer;
+  font-size: 0.8em;
+  color: var(--cor3);
+  border: 1px solid var(--cor12);
+  border-radius: 6px;
+  background-color: var(--cor11); 
+}
+
+#appContainer button[onclick*="fazerLogout"]:hover {
+  transition: background-color 0.5s;
+  background-color: var(--cor12);
 }
 
 @keyframes fadeIn {
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-li.gasto {
-  background-color: #a9452a;
-  color: #fff3d4;
-}
-
-li.ganho {
-  background-color: #739965;
-  color: #fff3d4;
-}
-
-button.delete {
-  flex-shrink: 0;
-  width: 50px;
-  height: 30px;
-
-  cursor: pointer;
-  color: #fff3d4;
-  background-color: #7c3421;
-  border: 1px solid #5b2616;
-  border-radius: 6px;
-}
-
-button.delete:hover {
-  background-color: #5b2616;
-}
-
-/* Responsivo */
-@media (max-width: 600px) {
-  .entradas, .botoes {
-    flex-direction: row;
-    align-items: center;
-  }
-
-  li {
-    flex-direction: row;
-    align-items: center;
-    gap: 5px;
-  }
-
-  button.delete {
-    width: 50px;
-  }
-
-  #loginContainer {
-    margin: 50px auto;
-    padding: 20px;
   }
 }
