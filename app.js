@@ -3,6 +3,17 @@ let transacoes = [];
 let mesAtual = new Date().getMonth();
 let anoAtual = new Date().getFullYear();
 
+if (window.matchMedia) {
+  // Chrome Android
+  document.querySelector('meta[name="theme-color"]').setAttribute('content', '#3f2e56');
+  // Para Android 5.0+ com meta tag especial:
+  if (navigator.userAgent.toLowerCase().indexOf('android') > -1) {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#3f2e56');
+    });
+  }
+}
+
 // ⬇️ Inicialização
 window.onload = () => {
   const salvo = localStorage.getItem('usuarioAtual');
