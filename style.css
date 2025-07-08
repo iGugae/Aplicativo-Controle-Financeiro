@@ -278,7 +278,6 @@ li {  /* Itens da lista */
   flex-grow: 1;
   
   overflow: hidden;
-  overflow-x: auto;
   white-space: nowrap;
   text-overflow: unset;
 
