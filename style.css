@@ -280,6 +280,12 @@ li {  /* Itens da lista */
   overflow-x: auto;
   white-space: nowrap;
   text-overflow: unset;
+
+  scrollbar-width: none;
+}
+
+.descricao-transacao::-webkit-scrollbar {
+  display: none;
 }
 
 li.gasto {

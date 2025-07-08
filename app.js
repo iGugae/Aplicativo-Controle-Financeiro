@@ -212,12 +212,12 @@ function atualizarGraficoPizza() {
     if (valores.ganho > 0) {
       labels.push(desc);
       data.push(valores.ganho);
-      backgroundColors.push(corVibranteAleatoriaHSL());
+      backgroundColors.push(corVibranteDistintaHSL());
     }
     if (valores.gasto > 0) {
       labels.push(desc);
       data.push(valores.gasto);
-      backgroundColors.push(corVibranteAleatoriaHSL());
+      backgroundColors.push(corVibranteDistintaHSL());
     }
   });
 
@@ -271,7 +271,12 @@ function atualizarGraficoPizza() {
   }
 }
 
-function corVibranteAleatoriaHSL() {
-  const hue = Math.floor(Math.random() * 360); // 0 a 359
-  return `hsl(${hue}, 100%, 50%)`;
+let ultimaCorHue = 0;
+
+function corVibranteDistintaHSL() {
+  // Incrementa a matiz para garantir cores mais distintas
+  ultimaCorHue = (ultimaCorHue + 67) % 360; // 67 dá bom espaçamento
+  const saturation = 80 + Math.floor(Math.random() * 20); // 80% a 100%
+  const lightness = 45 + Math.floor(Math.random() * 10); // 45% a 55%
+  return `hsl(${ultimaCorHue}, ${saturation}%, ${lightness}%)`;
 }
