@@ -275,8 +275,8 @@ let ultimaCorHue = 0;
 
 function corVibranteDistintaHSL() {
   // Incrementa a matiz para garantir cores mais distintas
-  ultimaCorHue = (ultimaCorHue + 67) % 360; // 67 dá bom espaçamento
+  ultimaCorHue = (ultimaCorHue + 50) % 360; // 67 dá bom espaçamento
   const saturation = 80 + Math.floor(Math.random() * 20); // 80% a 100%
-  const lightness = 45 + Math.floor(Math.random() * 10); // 45% a 55%
+  const lightness = 45 + Math.floor(Math.random() * 20); // 45% a 55%
   return `hsl(${ultimaCorHue}, ${saturation}%, ${lightness}%)`;
 }
