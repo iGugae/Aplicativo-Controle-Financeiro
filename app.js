@@ -221,7 +221,6 @@ function atualizarGraficoPizza() {
     }
   });
 
-
   const dados = {
     labels: labels,
     datasets: [{
@@ -261,7 +260,6 @@ function atualizarGraficoPizza() {
       }
     }
   }
-
 
   if (graficoPizza) {
     graficoPizza.data = dados;
