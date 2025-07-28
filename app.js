@@ -204,12 +204,39 @@ function atualizarGraficoPizza() {
     agrupado[desc][tipo] += valor;
   });
 
+  const labels = [];
+  const data = [];
+
+  // Conta total de entradas (ganhos + gastos) para gerar cores
+  let totalEntradas = 0;
+  Object.values(agrupado).forEach(v => {
+    if (v.ganho > 0) totalEntradas++;
+    if (v.gasto > 0) totalEntradas++;
+  });
+
+  const backgroundColors = gerarCores(totalEntradas); // gera 1 cor para cada item
+  let corIndex = 0;
+
+  Object.entries(agrupado).forEach(([desc, valores]) => {
+    if (valores.ganho > 0) {
+      labels.push(desc);
+      data.push(valores.ganho);
+      corIndex++;
+    }
+    if (valores.gasto > 0) {
+      labels.push(desc);
+      data.push(valores.gasto);
+      corIndex++;
+    }
+  });
+
+  // Agora usamos as cores geradas
   const dados = {
     labels: labels,
     datasets: [{
       label: 'Valores R$',
       data: data,
-      backgroundColor: backgroundColors,
+      backgroundColor: gerarCores(data.length), // aqui usa direto na ordem
       borderColor: 'black',
       borderWidth: 1
     }]
@@ -224,7 +251,7 @@ function atualizarGraficoPizza() {
         legend: {
           position: 'right',
           labels: {
-            color: '#d9c9b6', // cor do texto
+            color: '#dcb7e0',
             font: {
               size: 14,
               weight: 'bold'
@@ -242,7 +269,7 @@ function atualizarGraficoPizza() {
         }
       }
     }
-  }
+  };
 
   if (graficoPizza) {
     graficoPizza.data = dados;
@@ -250,4 +277,13 @@ function atualizarGraficoPizza() {
   } else {
     graficoPizza = new Chart(ctx, config);
   }
+}
+
+function gerarCores(qtd) {
+  const cores = [];
+  for (let i = 0; i < qtd; i++) {
+    const hue = Math.round((360 * i) / qtd);
+    cores.push(`hsl(${hue}, 70%, 50%)`);
+  }
+  return cores;
 }

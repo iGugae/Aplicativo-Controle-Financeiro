@@ -1,4 +1,4 @@
-const CACHE_NAME = 'controle-financeiro-v3';  // altere a versão a cada update
+const CACHE_NAME = 'controle-financeiro-v4';  // altere a versão a cada update
 
 self.addEventListener('install', e => {
   e.waitUntil(
