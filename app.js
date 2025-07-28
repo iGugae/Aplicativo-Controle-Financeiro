@@ -204,23 +204,6 @@ function atualizarGraficoPizza() {
     agrupado[desc][tipo] += valor;
   });
 
-  const labels = [];
-  const data = [];
-  const backgroundColors = [];
-
-  Object.entries(agrupado).forEach(([desc, valores]) => {
-    if (valores.ganho > 0) {
-      labels.push(desc);
-      data.push(valores.ganho);
-      backgroundColors.push(corVibranteDistintaHSL());
-    }
-    if (valores.gasto > 0) {
-      labels.push(desc);
-      data.push(valores.gasto);
-      backgroundColors.push(corVibranteDistintaHSL());
-    }
-  });
-
   const dados = {
     labels: labels,
     datasets: [{
@@ -267,14 +250,4 @@ function atualizarGraficoPizza() {
   } else {
     graficoPizza = new Chart(ctx, config);
   }
-}
-
-let ultimaCorHue = 0;
-
-function corVibranteDistintaHSL() {
-  // Incrementa a matiz para garantir cores mais distintas
-  ultimaCorHue = (ultimaCorHue + 50) % 360; // 67 dá bom espaçamento
-  const saturation = 80 + Math.floor(Math.random() * 20); // 80% a 100%
-  const lightness = 45 + Math.floor(Math.random() * 20); // 45% a 55%
-  return `hsl(${ultimaCorHue}, ${saturation}%, ${lightness}%)`;
 }
