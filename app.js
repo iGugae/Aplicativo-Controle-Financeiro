@@ -206,37 +206,27 @@ function atualizarGraficoPizza() {
 
   const labels = [];
   const data = [];
-
-  // Conta total de entradas (ganhos + gastos) para gerar cores
-  let totalEntradas = 0;
-  Object.values(agrupado).forEach(v => {
-    if (v.ganho > 0) totalEntradas++;
-    if (v.gasto > 0) totalEntradas++;
-  });
-
-  const backgroundColors = gerarCores(totalEntradas); // gera 1 cor para cada item
-  let corIndex = 0;
+  const backgroundColors = [];
 
   Object.entries(agrupado).forEach(([desc, valores]) => {
     if (valores.ganho > 0) {
       labels.push(desc);
       data.push(valores.ganho);
-      corIndex++;
+      backgroundColors.push(corVibranteDistintaHSL());
     }
     if (valores.gasto > 0) {
       labels.push(desc);
       data.push(valores.gasto);
-      corIndex++;
+      backgroundColors.push(corVibranteDistintaHSL());
     }
   });
 
-  // Agora usamos as cores geradas
   const dados = {
     labels: labels,
     datasets: [{
       label: 'Valores R$',
       data: data,
-      backgroundColor: gerarCores(data.length), // aqui usa direto na ordem
+      backgroundColor: backgroundColors,
       borderColor: 'black',
       borderWidth: 1
     }]
@@ -251,7 +241,7 @@ function atualizarGraficoPizza() {
         legend: {
           position: 'right',
           labels: {
-            color: '#dcb7e0',
+            color: '#d9c9b6', // cor do texto
             font: {
               size: 14,
               weight: 'bold'
@@ -269,7 +259,7 @@ function atualizarGraficoPizza() {
         }
       }
     }
-  };
+  }
 
   if (graficoPizza) {
     graficoPizza.data = dados;
@@ -279,11 +269,12 @@ function atualizarGraficoPizza() {
   }
 }
 
-function gerarCores(qtd) {
-  const cores = [];
-  for (let i = 0; i < qtd; i++) {
-    const hue = Math.round((360 * i) / qtd);
-    cores.push(`hsl(${hue}, 70%, 50%)`);
-  }
-  return cores;
+let ultimaCorHue = 0;
+
+function corVibranteDistintaHSL() {
+  // Incrementa a matiz para garantir cores mais distintas
+  ultimaCorHue = (ultimaCorHue + 7) % 360; // 67 dá bom espaçamento
+  const saturation = 60 + Math.floor(Math.random() * 20); // 80% a 100%
+  const lightness = 45 + Math.floor(Math.random() * 20); // 45% a 55%
+  return `hsl(${ultimaCorHue}, ${saturation}%, ${lightness}%)`;
 }
