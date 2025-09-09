@@ -1,4 +1,4 @@
-const CACHE_NAME = 'controle-financeiro-v1.7';  // altere a versão a cada update
+const CACHE_NAME = 'controle-financeiro-v1.8';  // altere a versão a cada update
 
 self.addEventListener('install', e => {
   e.waitUntil(
@@ -33,4 +33,8 @@ self.addEventListener('fetch', e => {
       return resposta || fetch(e.request);
     })
   );
+});
+
+navigator.serviceWorker.addEventListener('controllerchange', () => {
+  window.location.reload();
 });

@@ -79,7 +79,7 @@ function adicionarTransacao(tipo) {
   const valor = parseFloat(document.getElementById('valor').value);
   if (!descricao || isNaN(valor)) return;
 
-  transacoes.push({ descricao, valor, tipo, data: new Date().toISOString() });
+  transacoes.push({ id:crypto.randomUUID(), descricao, valor, tipo, data: new Date().toISOString() });
   salvarTransacoes();
   renderizarLista();
 
@@ -117,7 +117,7 @@ function renderizarLista() {
       const btn = document.createElement('button');
       btn.textContent = '🗑️';
       btn.className = 'delete';
-      btn.onclick = () => removerTransacao(data);
+      btn.onclick = () => removerTransacao(id);
       li.appendChild(btn);
     }
 
@@ -132,7 +132,7 @@ function renderizarLista() {
 }
 
 // 🗑️ Remove transação
-function removerTransacao(data) {
+function removerTransacao(id) {
   transacoes = transacoes.filter(t => t.data !== data);
   salvarTransacoes();
   renderizarLista();
