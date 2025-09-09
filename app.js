@@ -99,7 +99,7 @@ function renderizarLista() {
 
   const transacoesFiltradas = filtrarTransacoesDoMes(transacoes);
 
-  transacoesFiltradas.forEach(({ descricao, valor, tipo = 'gasto', data }, indexGlobal) => {
+  transacoesFiltradas.forEach(({ descricao, valor, tipo = 'gasto', data }) => {
     const li = document.createElement('li');
     li.className = tipo === 'gasto' ? 'gasto' : 'ganho';
 
