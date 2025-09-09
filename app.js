@@ -117,7 +117,7 @@ function renderizarLista() {
       const btn = document.createElement('button');
       btn.textContent = '🗑️';
       btn.className = 'delete';
-      btn.onclick = () => removerTransacao(indexGlobal);
+      btn.onclick = () => removerTransacao(data);
       li.appendChild(btn);
     }
 
@@ -132,8 +132,8 @@ function renderizarLista() {
 }
 
 // 🗑️ Remove transação
-function removerTransacao(index) {
-  transacoes.splice(index, 1);
+function removerTransacao(data) {
+  transacoes = transacoes.filter(t => t.data !== data);
   salvarTransacoes();
   renderizarLista();
 }
